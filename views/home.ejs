@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Home</title>
+
+     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+/*            height: 100vh;*/
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            position:relative;
+            top:100px;
+            text-align: center;
+            width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;            
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 100px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="login-container">
+        <h1>Welcome, <%= user.username %>!</h1><hr><br>
+
+
+        <form action="/logout" method="POST">
+        <button type="submit">Signout</button>
+        </form>
+     
+        <br>Your token is : <%= token_no %> <br><br>
+        <%= (typeof msgExtra !== 'undefined' && msgExtra) ? msgExtra : '' %>
+
+    </div>
+</body>
+</html>
